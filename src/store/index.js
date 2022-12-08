@@ -7,14 +7,10 @@ export default createStore({
   mutations: {
     UPDATE_PROJECT_STATUS(state, payload) {
       let item = state.projectList.filter(e => e.id === payload);
-      if(item[0].completed){
-        item[0].completed = false
-      }else{        
-        item[0].completed = true
-      }
+      item[0].completed = !item[0].completed ;
     },
     DELETE_PROJECT(state, payload) {
-      let item = state.projectList.findIndex(x => x.id === payload);    
+      let item = state.projectList.findIndex(x => x.id === payload);   
       state.projectList.splice(item, 1);
     },
     ADD_PROJECT(state, payload) {
